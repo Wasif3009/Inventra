@@ -1,4 +1,12 @@
 import React, { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 const CreateCategory = () => {
   const [form, setForm] = useState({
@@ -26,25 +34,20 @@ const CreateCategory = () => {
       });
   };
   return (
-    <div className="add-container">
-      <form
-        onSubmit={handleAdd}
-        className="flex flex-col items-center justify-center"
-      >
-        <div className="input-fields">
-          Enter The Name of Category
-          <input
-            type="text"
-            placeholder="Enter the Name of Category"
-            required
-            onChange={(e) => {
-              setForm({ ...form, name: e.target.value });
-            }}
-          />
-        </div>
-        <button onClick={handleAdd}>Add Category</button>
-      </form>
-    </div>
+    <>
+      <Dialog>
+        <DialogTrigger>Open</DialogTrigger>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Are you absolutely sure?</DialogTitle>
+            <DialogDescription>
+              This action cannot be undone. This will permanently delete your
+              account and remove your data from our servers.
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
 
