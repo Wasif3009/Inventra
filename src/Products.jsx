@@ -4,11 +4,20 @@ import SideBar from "./SideBar";
 import LoadingMessage from "./LoadingMessage";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+import CreateProducts from "./CreateProducts";
+import GetProducts from "./GetProducts";
+import UpdateProducts from "./UpdateProducts";
 
 const Products = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [showCreate, setShowCreate] = useState(false);
+  const [dataUpdated, setDataUpdated] = useState(false);
+  const [showUpdate, setShowUpdate] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
   const token = localStorage.getItem("authToken");
+
   const navigate = useNavigate();
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BASE_URL}/products`, {
@@ -29,7 +38,7 @@ const Products = () => {
       .catch(() => {
         setLoading(false);
       });
-  }, []);
+  }, [dataUpdated]);
 
   const handleDelete = (item) => {
     fetch(`${import.meta.env.VITE_BASE_URL}/products/${item._id}`, {
@@ -48,6 +57,16 @@ const Products = () => {
         toast.success(`${item.name} Deleted Successfully`);
       });
   };
+
+  const handleAddBtn = () => {
+    setShowCreate(true);
+  };
+
+  const handleUpdate = (item) => {
+    setSelectedProduct(item);
+    setShowUpdate(true);
+  };
+
   return (
     <div>
       <Toaster
@@ -65,15 +84,38 @@ const Products = () => {
         <Navbar />
         <div className="flex flex-col w-280">
           <SideBar />
-          {loading ? (
-            <LoadingMessage />
-          ) : data.length === 0 ? (
-            <div className="text-white p-5 text-center flex items-center justify-center h-full text-3xl">
-              No products found
-            </div>
-          ) : (
-            <div className="categories flex items-start justify-center ">
-              <div className="shadow-lg  table-container rounded-lg ">
+          <div className="categories flex items-start justify-center ">
+            <div className="shadow-lg  table-container rounded-lg ">
+              {showCreate && (
+                <CreateProducts
+                  open={showCreate}
+                  setOpen={setShowCreate}
+                  setDataUpdated={setDataUpdated}
+                  dataUpdated={dataUpdated}
+                />
+              )}
+              {showUpdate && (
+                <UpdateProducts
+                  open={showUpdate}
+                  setOpen={setShowUpdate}
+                  setDataUpdated={setDataUpdated}
+                  dataUpdated={dataUpdated}
+                  product={selectedProduct}
+                />
+              )}
+              <div className="flex items-center justify-between ">
+                {/* <GetProducts /> */}
+                <button className="create-btn" onClick={handleAddBtn}>
+                  Create a Product
+                </button>
+              </div>
+              {loading ? (
+                <LoadingMessage />
+              ) : data.length === 0 ? (
+                <div className="text-white p-5 text-center flex items-center justify-center h-full text-3xl">
+                  No products found
+                </div>
+              ) : (
                 <table className="text-[#f3f4f6] text-center table">
                   <thead className="sticky top-0 z-10">
                     <tr>
@@ -103,21 +145,30 @@ const Products = () => {
                           <td className="table-data">{item.price}</td>
 
                           <td className="table-data">
-                            <button
-                              className="delete-btn"
-                              onClick={() => handleDelete(item)}
-                            >
-                              Delete
-                            </button>
+                            <div className="flex items-center justify-center gap-6">
+                              <button
+                                className="update-btn"
+                                onClick={() => handleUpdate(item)}
+                              >
+                                Update
+                              </button>
+
+                              <button
+                                className="delete-btn"
+                                onClick={() => handleDelete(item)}
+                              >
+                                Delete
+                              </button>
+                            </div>
                           </td>
                         </tr>
                       );
                     })}
                   </tbody>
                 </table>
-              </div>
+              )}
             </div>
-          )}
+          </div>
         </div>
       </div>
     </div>

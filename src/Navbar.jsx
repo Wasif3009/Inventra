@@ -3,6 +3,7 @@ import { NavLink, Route, Routes, useNavigate } from "react-router-dom";
 import SignUp from "./Authentication/SignUp";
 import Login from "./Authentication/Login";
 import { IoLogOutOutline } from "react-icons/io5";
+import { MdDashboard } from "react-icons/md";
 
 const Navbar = ({}) => {
   const navigate = useNavigate();
@@ -30,8 +31,10 @@ const Navbar = ({}) => {
           <div className="navlinks">
             <ul className="flex flex-col gap-10 justify-center items-center text-[#F3F4F6] text-xl">
               <NavLink to="/">
+                {/* <MdDashboard /> */}
                 <li>Dashboard</li>
               </NavLink>
+
               <NavLink to="/products">
                 <li>Products</li>
               </NavLink>

@@ -2,6 +2,7 @@ import React, { use, useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { NavLink, Route, Routes, useNavigate } from "react-router-dom";
 import SignUp from "./SignUp";
+import { jwtDecode } from "jwt-decode";
 
 const Login = () => {
   const [form, setForm] = useState({
@@ -31,6 +32,9 @@ const Login = () => {
         console.log(data);
         toast.success(data.message);
         localStorage.setItem("authToken", data.token);
+        const decoded = jwtDecode(data.token);
+        localStorage.setItem("userName", decoded.email);
+
         navigate("/");
       })
       .catch((error) => {
