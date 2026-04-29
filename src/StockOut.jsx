@@ -24,19 +24,20 @@ const StockOut = () => {
 
   return (
     <div className="categories flex items-start justify-center">
-      <div className="shadow-lg table-container stock-container rounded-lg w-full max-w-2xl">
-        <table className="text-[#f3f4f6] text-center table w-full">
+      <div className="shadow-lg  stock-container rounded-lg ">
+        <table className="text-[#f3f4f6] text-center table ">
           <thead className="sticky top-0 z-10">
             <tr>
               <th className="table-header">No.</th>
               <th className="table-header">Out of Stocks</th>
+              <th className="table-header">Quantity</th>
             </tr>
           </thead>
 
           <tbody>
             {out.length === 0 ? (
               <tr>
-                <td colSpan="2" className="text-2xl py-6">
+                <td colSpan="3" className="text-2xl py-6">
                   No Stock Found
                 </td>
               </tr>
@@ -48,6 +49,7 @@ const StockOut = () => {
                 >
                   <td className="table-data">{index + 1}</td>
                   <td className="table-data">{item.name}</td>
+                  <td className="table-data">{item.quantity}</td>
                 </tr>
               ))
             )}

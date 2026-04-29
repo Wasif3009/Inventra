@@ -6,6 +6,8 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import { Label } from "@/components/ui/label";
+import toast from "react-hot-toast";
 
 const UpdateProducts = ({
   open,
@@ -23,6 +25,22 @@ const UpdateProducts = ({
   });
 
   const handleUpdate = () => {
+    if (!form.name) {
+      toast.error(`Please Add Product Name`);
+      return;
+    }
+    if (!form.price) {
+      toast.error(`Please Add Price `);
+      return;
+    }
+    if (!form.quantity) {
+      toast.error(`Please Add quantity `);
+      return;
+    }
+    if (!form.category) {
+      toast.error(`Please Add quantity `);
+      return;
+    }
     fetch(`${import.meta.env.VITE_BASE_URL}/products/${product._id}`, {
       method: "PUT",
       headers: {
@@ -37,6 +55,9 @@ const UpdateProducts = ({
       .then((data) => {
         setOpen(false);
         setDataUpdated(!dataUpdated);
+        toast.success(`${form.name} Updated Successfully `, {
+          duration: 3000,
+        });
       });
   };
 
@@ -55,36 +76,47 @@ const UpdateProducts = ({
           </DialogHeader>
 
           <div className="mt-4 space-y-4">
+            <Label htmlFor="name" className="text-zinc-300">
+              Product Name
+            </Label>
             <input
               type="text"
-              placeholder="Product Name"
               value={form.name}
+              placeholder="Product Name"
               onChange={(e) => setForm({ ...form, name: e.target.value })}
-              className="w-full p-2 rounded-md bg-zinc-800 border border-zinc-600 text-white  dialog-input product-input"
+              className="w-full p-2 rounded-md bg-zinc-800 border border-zinc-600 text-white  dialog-input product-update-input"
             />
+            <Label htmlFor="price" className="text-zinc-300">
+              Product Price
+            </Label>
             <input
               type="text"
-              placeholder="Enter Updated Price..."
               value={form.price}
+              placeholder="Enter Updated Price..."
               onChange={(e) => setForm({ ...form, price: e.target.value })}
-              className="w-full p-2 rounded-md bg-zinc-800 border border-zinc-600 text-white  dialog-input product-input"
+              className="w-full p-2 rounded-md bg-zinc-800 border border-zinc-600 text-white  dialog-input product-update-input"
             />
+            <Label htmlFor="quantity" className="text-zinc-300">
+              Product Quantity
+            </Label>
             <input
-              type="number"
-              placeholder="Enter Update Quantity..."
+              type="text"
               value={form.quantity}
+              placeholder="Enter Update Quantity..."
               onChange={(e) =>
                 setForm({ ...form, quantity: Number(e.target.value) })
               }
-              className="w-full p-2 rounded-md bg-zinc-800 border border-zinc-600 text-white  dialog-input product-input"
+              className="w-full p-2 rounded-md bg-zinc-800 border border-zinc-600 text-white  dialog-input product-update-input"
             />
-
+            <Label htmlFor="category" className="text-zinc-300">
+              Product Category
+            </Label>
             <input
               type="text"
               placeholder="Enter Updated Category..."
               value={form.category}
               onChange={(e) => setForm({ ...form, category: e.target.value })}
-              className="w-full p-2 rounded-md bg-zinc-800 border border-zinc-600 text-white  dialog-input product-input"
+              className="w-full p-2 rounded-md bg-zinc-800 border border-zinc-600 text-white  dialog-input product-update-input"
             />
 
             <button

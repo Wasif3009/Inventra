@@ -1,0 +1,168 @@
+/* BELOW 1344px (SMALLER DESKTOPS) */
+@media (max-width: 84em) {
+  html {
+    font-size: 60%;
+  }
+}
+
+/* BELOW 1200px (LANDSCAPE TABLETS) */
+
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+  /* .section-2 {
+    gap: 20rem;
+  } */
+}
+
+@media (max-width: 66em) {
+  html {
+    font-size: 55%;
+  }
+}
+
+/* BELOW 944px (TABLETS) */
+
+@media (max-width: 59em) {
+  html {
+    font-size: 52%;
+  }
+  .table-container {
+    width: 76rem;
+  }
+  .stock-container {
+    min-width: 32rem;
+  }
+
+  .stock-btn {
+    gap: 58rem;
+  }
+}
+
+/* BELOW 832px */
+
+@media (max-width: 52em) {
+  html {
+    font-size: 50%;
+  }
+
+  .table-container {
+    width: 74rem;
+  }
+  .summary {
+    margin-left: 3rem;
+  }
+  .stock-container {
+    min-width: 28rem;
+  }
+
+  .stock-btn {
+    gap: 52rem;
+  }
+
+  /* .section-2 {
+    gap: 30rem;
+  } */
+}
+
+/* BELOW 736px */
+@media (max-width: 46em) {
+  html {
+    font-size: 48%;
+  }
+  .summary {
+    margin-left: 0rem;
+  }
+
+  .table-container {
+    width: 66rem;
+  }
+
+  .summary-container {
+    height: 18rem;
+    width: 12rem;
+  }
+  .stock-container {
+    min-width: 20rem;
+  }
+
+  .stock-btn {
+    gap: 42rem;
+  }
+}
+
+/* BELOW 700PX (SMALLER TABLETS) */
+
+@media (max-width: 44em) {
+  html {
+    font-size: 46%;
+  }
+
+  ul li {
+    display: none;
+  }
+  .nav-icons {
+    display: inline-block;
+  }
+
+  .section-1 {
+    width: 20%;
+    margin-right: 2rem;
+  }
+  .image {
+    width: 110%;
+  }
+  .active {
+    width: 5rem;
+  }
+}
+
+/* BELOW 550px (PHONES) */
+
+@media (max-width: 34em) {
+  html {
+    font-size: 44%;
+  }
+
+  .section-1 {
+    width: 14%;
+    margin-right: 1rem;
+  }
+  .image {
+    width: 110%;
+  }
+  .active {
+    width: 5rem;
+  }
+  .summary {
+    width: 62rem;
+  }
+}
+
+@media (max-width: 25em) {
+  html {
+    font-size: 42%;
+  }
+  .summary {
+    width: 40rem;
+    margin-left: 2rem;
+    /* gap: 2rem; */
+  }
+  .login-container,
+  .signup-container {
+    width: 50rem;
+  }
+}
+
+/* BELOW 350px */
+@media (max-width: 22em) {
+  html {
+    font-size: 40%;
+  }
+  .summary {
+    width: 40rem;
+    margin-left: 2rem;
+    /* gap: 2rem; */
+  }
+}

@@ -80,11 +80,11 @@ const Products = () => {
           },
         }}
       />
-      <div className="flex">
+      <div className="flex dashboard">
         <Navbar />
-        <div className="flex flex-col w-280">
+        <div className="flex flex-col left-container">
           <SideBar />
-          <div className="categories flex items-start justify-center ">
+          <div className="categories flex items-start  ">
             <div className="shadow-lg  table-container rounded-lg ">
               {showCreate && (
                 <CreateProducts

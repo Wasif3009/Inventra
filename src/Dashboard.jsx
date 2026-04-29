@@ -72,7 +72,7 @@ const Dashboard = () => {
     <div>
       <div className="dashboard flex">
         <Navbar />
-        <div className="flex flex-col">
+        <div className="flex flex-col left-container">
           <SideBar />
           {/* Style Component Here Below SideBar */}
           <div className="summary flex items-center justify-center gap-10 flex-wrap">
