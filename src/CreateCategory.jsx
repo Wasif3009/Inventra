@@ -5,7 +5,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogDescription,
-} from "@/components/ui/dialog";
+} from "@/ui/dialog";
 import toast from "react-hot-toast";
 
 const CreateCategory = ({ open, setOpen, dataUpdated, setDataUpdated }) => {

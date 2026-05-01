@@ -5,8 +5,8 @@ import {
   DialogHeader,
   DialogTitle,
   DialogDescription,
-} from "@/components/ui/dialog";
-import { Label } from "@/components/ui/label";
+} from "@/ui/dialog";
+import { Label } from "@/ui/label";
 import toast from "react-hot-toast";
 
 const UpdateProducts = ({

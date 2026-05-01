@@ -5,7 +5,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogDescription,
-} from "@/components/ui/dialog";
+} from "./ui/dialog";
 const Profile = ({ open, setOpen, showProfile, setShowProfile }) => {
   const [user, setUser] = useState([]);
   const token = localStorage.getItem("authToken");
