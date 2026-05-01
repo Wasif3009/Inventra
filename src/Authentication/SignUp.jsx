@@ -3,13 +3,17 @@ import { Toaster } from "react-hot-toast";
 import toast from "react-hot-toast";
 import { NavLink, Route, Routes, useNavigate } from "react-router-dom";
 import Login from "./Login";
-
+import { LuEye } from "react-icons/lu";
+import { LuEyeClosed } from "react-icons/lu";
 const SignUp = () => {
   const [form, setForm] = useState({
     name: "",
     email: "",
     password: "",
   });
+
+  const [showPassword, setShowPassword] = useState(false);
+
   const navigate = useNavigate();
 
   const handleSignUp = (e) => {
@@ -60,7 +64,8 @@ const SignUp = () => {
           <form
             onSubmit={handleSignUp}
             className="flex flex-col items-center justify-center"
-          x>
+            x
+          >
             <div className="input-fields">
               Enter Your Name
               <input
@@ -83,13 +88,31 @@ const SignUp = () => {
 
             <div className="input-fields">
               Enter Your Password
-              <input
-                type="password"
-                placeholder="Enter Your Password"
-                required
-                onChange={(e) => setForm({ ...form, password: e.target.value })}
-              />
+              <div className="password-wrapper flex items-center">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Enter Your Password"
+                  required
+                  onChange={(e) =>
+                    setForm({ ...form, password: e.target.value })
+                  }
+                />
+                {showPassword ? (
+                  <LuEyeClosed
+                    className="eye-icon"
+                    size={16}
+                    onClick={() => setShowPassword(!showPassword)}
+                  />
+                ) : (
+                  <LuEye
+                    className="eye-icon"
+                    size={16}
+                    onClick={() => setShowPassword(!showPassword)}
+                  />
+                )}
+              </div>
             </div>
+
             <button>Sign Up</button>
           </form>
         </div>

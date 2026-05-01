@@ -90,6 +90,10 @@
   .stock-btn {
     gap: 42rem;
   }
+
+  .getproducts {
+    width: 50%;
+  }
 }
 
 /* BELOW 700PX (SMALLER TABLETS) */
@@ -116,6 +120,15 @@
   .active {
     width: 5rem;
   }
+  .stock-btn {
+    gap: 46rem;
+  }
+  .stock-gap {
+    gap: 20rem;
+  }
+  .getproducts {
+    width: 50%;
+  }
 }
 
 /* BELOW 550px (PHONES) */
@@ -124,7 +137,9 @@
   html {
     font-size: 44%;
   }
-
+  .section-3 {
+    width: 105%;
+  }
   .section-1 {
     width: 14%;
     margin-right: 1rem;
@@ -138,20 +153,64 @@
   .summary {
     width: 62rem;
   }
+
+  .stock-btn {
+    gap: 36rem;
+  }
+  .stock-gap {
+    gap: 12rem;
+  }
+  .getproducts {
+    width: 40%;
+  }
 }
 
 @media (max-width: 25em) {
   html {
-    font-size: 42%;
+    font-size: 40%;
   }
+
   .summary {
+    /* height: 36dvh; */
     width: 40rem;
     margin-left: 2rem;
+    /* height: 10rem; */
+    /* max-width: ; */
     /* gap: 2rem; */
+  }
+
+  .navlinks {
+    margin-top: 6rem;
+  }
+
+  .navlinks ul {
+    gap: 6rem;
+  }
+
+  .table-header {
+    padding: 1.4rem 1rem;
+  }
+
+  .table-data {
+    padding: 1.4rem 1rem;
   }
   .login-container,
   .signup-container {
     width: 50rem;
+  }
+
+  .section-2 {
+    height: 86%;
+  }
+
+  .stock-btn {
+    gap: 26rem;
+  }
+  .stock-gap {
+    gap: 2rem;
+  }
+  .getproducts {
+    width: 40%;
   }
 }
 
@@ -164,5 +223,19 @@
     width: 40rem;
     margin-left: 2rem;
     /* gap: 2rem; */
+  }
+
+  .stock-gap {
+    gap: 0rem;
+  }
+  .stock-btn {
+    gap: 20rem;
+  }
+
+  .table-header {
+    padding: 1rem 0.6rem;
+  }
+  .table-data {
+    padding: 1rem 0.6rem;
   }
 }

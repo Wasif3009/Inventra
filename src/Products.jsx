@@ -5,7 +5,6 @@ import LoadingMessage from "./LoadingMessage";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import CreateProducts from "./CreateProducts";
-import GetProducts from "./GetProducts";
 import UpdateProducts from "./UpdateProducts";
 
 const Products = () => {
@@ -15,6 +14,7 @@ const Products = () => {
   const [dataUpdated, setDataUpdated] = useState(false);
   const [showUpdate, setShowUpdate] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [fullData, setFullData] = useState([]);
 
   const token = localStorage.getItem("authToken");
 
@@ -32,7 +32,9 @@ const Products = () => {
       })
       .then((data) => {
         console.log(data);
+        setFullData(data);
         setData(data);
+
         setLoading(false);
       })
       .catch(() => {
@@ -67,6 +69,12 @@ const Products = () => {
     setShowUpdate(true);
   };
 
+  const handleInput = (e) => {
+    const filtered = fullData.filter((item) => {
+      return item._id.includes(e.target.value);
+    });
+    setData(filtered);
+  };
   return (
     <div>
       <Toaster
@@ -104,7 +112,12 @@ const Products = () => {
                 />
               )}
               <div className="flex items-center justify-between ">
-                {/* <GetProducts /> */}
+                <input
+                  type="text"
+                  className="getproducts"
+                  onChange={(e) => handleInput(e)}
+                  placeholder="Enter ID to get Products..."
+                />
                 <button className="create-btn" onClick={handleAddBtn}>
                   Create a Product
                 </button>

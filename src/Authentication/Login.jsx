@@ -1,14 +1,17 @@
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { NavLink, Route, Routes, useNavigate } from "react-router-dom";
 import SignUp from "./SignUp";
 import { jwtDecode } from "jwt-decode";
+import { LuEye } from "react-icons/lu";
+import { LuEyeClosed } from "react-icons/lu";
 
 const Login = () => {
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
@@ -71,14 +74,30 @@ const Login = () => {
               onChange={(e) => setForm({ ...form, email: e.target.value })}
             />
           </div>
-          <div className="input-fields">
+          <div className="input-fields ">
             Enter Your Password
-            <input
-              type="password"
-              placeholder="Enter Your Password"
-              required
-              onChange={(e) => setForm({ ...form, password: e.target.value })}
-            />
+            <div className="password-wrapper flex items-center">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Enter Your Password"
+                required
+                onChange={(e) => setForm({ ...form, password: e.target.value })}
+              />
+
+              {showPassword ? (
+                <LuEyeClosed
+                  className="eye-icon"
+                  size={16}
+                  onClick={() => setShowPassword(!showPassword)}
+                />
+              ) : (
+                <LuEye
+                  className="eye-icon"
+                  size={16}
+                  onClick={() => setShowPassword(!showPassword)}
+                />
+              )}
+            </div>
           </div>
           <button>Login</button>
         </form>
