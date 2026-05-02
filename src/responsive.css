@@ -1,8 +1,8 @@
 /* BELOW 1344px (SMALLER DESKTOPS) */
 @media (max-width: 84em) {
-  html {
+  /* html {
     font-size: 62.5%;
-  }
+  } */
 }
 
 /* BELOW 1200px (LANDSCAPE TABLETS) */

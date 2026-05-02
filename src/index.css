@@ -309,8 +309,8 @@ body,
 }
 .summary {
   /* margin-right: 30rem; */
-  height: 75dvh;
-  width: 70rem;
+  height: 100%;
+  width: 100%;
   margin-left: 5rem;
 }
 
