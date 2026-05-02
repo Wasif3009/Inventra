@@ -12,7 +12,7 @@
     font-size: 56.25%;
   }
   /* .section-2 {
-    gap: 20rem;
+    gap: 22rem;
   } */
 }
 
@@ -29,15 +29,19 @@
     font-size: 52%;
   }
   .table-container {
-    width: 76rem;
+    max-width: 76rem;
   }
   .stock-container {
-    min-width: 32rem;
+    max-width: 32rem;
   }
 
   .stock-btn {
     gap: 58rem;
   }
+
+  /* .section-2 {
+    gap: 22rem;
+  } */
 }
 
 /* BELOW 832px */
@@ -46,15 +50,17 @@
   html {
     font-size: 50%;
   }
-
+  /* .section-2 {
+    gap: 24rem;
+  } */
   .table-container {
-    width: 74rem;
+    max-width: 74rem;
   }
   .summary {
     margin-left: 3rem;
   }
   .stock-container {
-    min-width: 28rem;
+    max-width: 28rem;
   }
 
   .stock-btn {
@@ -71,20 +77,24 @@
   html {
     font-size: 48%;
   }
+
+  /* .section-2 {
+    gap: 34rem;
+  } */
   .summary {
     margin-left: 0rem;
   }
 
   .table-container {
-    width: 66rem;
+    max-width: 66rem;
   }
 
   .summary-container {
-    height: 18rem;
-    width: 12rem;
+    max-height: 18rem;
+    max-width: 12rem;
   }
   .stock-container {
-    min-width: 20rem;
+    max-width: 20rem;
   }
 
   .stock-btn {
@@ -92,7 +102,7 @@
   }
 
   .getproducts {
-    width: 50%;
+    max-width: 50%;
   }
 }
 
@@ -111,14 +121,14 @@
   }
 
   .section-1 {
-    width: 20%;
+    max-width: 20%;
     margin-right: 2rem;
   }
   .image {
-    width: 110%;
+    max-width: 110%;
   }
   .active {
-    width: 5rem;
+    max-width: 5rem;
   }
   .stock-btn {
     gap: 46rem;
@@ -127,7 +137,7 @@
     gap: 20rem;
   }
   .getproducts {
-    width: 50%;
+    max-width: 50%;
   }
 }
 
@@ -138,20 +148,20 @@
     font-size: 44%;
   }
   .section-3 {
-    width: 105%;
+    min-width: 105%;
   }
   .section-1 {
-    width: 14%;
+    max-width: 14%;
     margin-right: 1rem;
   }
   .image {
-    width: 110%;
+    max-width: 110%;
   }
   .active {
-    width: 5rem;
+    max-width: 5rem;
   }
   .summary {
-    width: 62rem;
+    max-width: 62rem;
   }
 
   .stock-btn {
@@ -161,7 +171,7 @@
     gap: 12rem;
   }
   .getproducts {
-    width: 40%;
+    max-width: 40%;
   }
 }
 
@@ -171,8 +181,8 @@
   }
 
   .summary {
-    /* height: 36dvh; */
-    width: 40rem;
+    height: 50dvh;
+    max-width: 40rem;
     margin-left: 2rem;
     /* height: 10rem; */
     /* max-width: ; */
@@ -196,11 +206,12 @@
   }
   .login-container,
   .signup-container {
-    width: 50rem;
+    max-width: 50rem;
   }
 
   .section-2 {
-    height: 86%;
+    max-height: 50%;
+    gap: 26rem;
   }
 
   .stock-btn {
@@ -210,7 +221,10 @@
     gap: 2rem;
   }
   .getproducts {
-    width: 40%;
+    max-width: 40%;
+  }
+  .stock-container {
+    max-width: 20rem;
   }
 }
 
@@ -220,7 +234,7 @@
     font-size: 40%;
   }
   .summary {
-    width: 40rem;
+    max-width: 40rem;
     margin-left: 2rem;
     /* gap: 2rem; */
   }

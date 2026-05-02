@@ -31,7 +31,7 @@ const Navbar = ({}) => {
       </div>
       <div className="section-2">
         <div className="navlinks">
-          <ul className="flex flex-col gap-10 justify-center items-center text-[#F3F4F6] text-xl">
+          <ul className="flex flex-col gap-20 justify-center items-center text-[#F3F4F6] text-xl">
             <NavLink to="/">
               <div className="flex items-center justify-center gap-2">
                 <MdSpaceDashboard size={18} className=" nav-icons" />
