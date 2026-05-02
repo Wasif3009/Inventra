@@ -180,8 +180,12 @@
     font-size: 40%;
   }
 
+  body {
+    background-color: red;
+  }
+
   .summary {
-    height: 50dvh;
+    height: 100dvh;
     max-width: 40rem;
     margin-left: 2rem;
     /* height: 10rem; */
