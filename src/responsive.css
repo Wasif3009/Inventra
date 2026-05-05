@@ -50,9 +50,9 @@
   html {
     font-size: 52%;
   }
-  .table-container {
+  /* .table-container {
     width: 76rem;
-  }
+  } */
   .stock-btn {
     gap: 52rem;
   }
@@ -70,9 +70,9 @@
     font-size: 51%;
   }
 
-  .table-container {
+  /* .table-container {
     width: 68rem;
-  }
+  } */
   .stock-btn {
     gap: 46rem;
   }
@@ -107,9 +107,9 @@
   .getproducts {
     width: 46%;
   }
-  .table-container {
+  /* .table-container {
     width: 64rem;
-  }
+  } */
   .stock-btn {
     gap: 40rem;
   }
@@ -133,9 +133,9 @@
   .table-data {
     padding: 1rem;
   }
-  .table-container {
+  /* .table-container {
     width: 48rem;
-  }
+  } */
   .getproducts {
     width: 34%;
   }
@@ -165,6 +165,10 @@
   .active {
     width: 5rem;
   }
+
+  .section-1 {
+    display: none;
+  }
   /* .section-1 {
     margin-left: -3rem;
   } */
@@ -175,9 +179,9 @@
   .table-data {
     padding: 1rem 0rem;
   }
-  .table-container {
+  /* .table-container {
     width: 38rem;
-  }
+  } */
 
   .stock-container {
     width: 18rem;
