@@ -111,7 +111,7 @@ const Products = () => {
                   product={selectedProduct}
                 />
               )}
-              <div className="flex items-center  gap-48 md:gap-56">
+              <div className="flex items-center  justify-between w-full">
                 <input
                   type="text"
                   className="getproducts"

@@ -33,8 +33,8 @@ const Stock = ({ loading }) => {
           {loading ? (
             <LoadingMessage />
           ) : (
-            <div className="flex  gap-3 flex-col">
-              <div className="flex items-center   stock-btn">
+            <div className="flex  gap-3 flex-col w-full">
+              <div className="flex items-center   justify-between">
                 <button className="create-btn" onClick={handleAddLow}>
                   Add Low Stock
                 </button>{" "}
@@ -42,7 +42,7 @@ const Stock = ({ loading }) => {
                   Add Out of Stock
                 </button>
               </div>
-              <div className="flex items-center stock-gap ">
+              <div className="flex items-center justify-between ">
                 <StockLow />
                 <StockOut />
               </div>
