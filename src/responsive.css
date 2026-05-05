@@ -1,259 +1,88 @@
-/* BELOW 1344px (SMALLER DESKTOPS) */
-@media (max-width: 84em) {
-  /* html {
-    font-size: 62.5%;
-  } */
-}
+/* DESKTOP 1760PX */
 
-/* BELOW 1200px (LANDSCAPE TABLETS) */
-
-@media (max-width: 75em) {
-  /* html {
-    font-size: 60%;
-  } */
-  /* .section-2 {
-    gap: 22rem;
-  } */
-}
-
-@media (max-width: 66em) {
-  /* html {
-    font-size: 62.5%;
-  } */
-}
-
-/* BELOW 944px (TABLETS) */
-
-@media (max-width: 59em) {
-  /* html {
-    font-size: 52%;
-  } */
-  .table-container {
-    max-width: 76rem;
-  }
-  .stock-container {
-    max-width: 32rem;
-  }
-
-  .stock-btn {
-    gap: 58rem;
-  }
-
-  /* .section-2 {
-    gap: 22rem;
-  } */
-}
-
-/* BELOW 832px */
-
-@media (max-width: 52em) {
-  /* html {
-    font-size: 50%;
-  } */
-  /* .section-2 {
-    gap: 24rem;
-  } */
-  .table-container {
-    max-width: 74rem;
-  }
-  .summary {
-    margin-left: 3rem;
-  }
-  .stock-container {
-    max-width: 28rem;
-  }
-
-  .stock-btn {
-    gap: 52rem;
-  }
-
-  /* .section-2 {
-    gap: 30rem;
-  } */
-}
-
-/* BELOW 736px */
-@media (max-width: 46em) {
-  /* html {
-    font-size: 48%;
-  } */
-
-  /* .section-2 {
-    gap: 34rem;
-  } */
-  .summary {
-    margin-left: 0rem;
-  }
-
-  .table-container {
-    max-width: 66rem;
-  }
-
-  .summary-container {
-    max-height: 18rem;
-    max-width: 12rem;
-  }
-  .stock-container {
-    max-width: 20rem;
-  }
-
-  .stock-btn {
-    gap: 42rem;
-  }
-
-  .getproducts {
-    max-width: 50%;
-  }
-}
-
-/* BELOW 700PX (SMALLER TABLETS) */
-
-@media (max-width: 44em) {
-  /* html {
-    font-size: 46%;
-  } */
-
-  ul li {
-    display: none;
-  }
-  .nav-icons {
-    display: inline-block;
-  }
-
-  .section-1 {
-    max-width: 20%;
-    margin-right: 2rem;
-  }
-  .image {
-    max-width: 110%;
-  }
-  .active {
-    max-width: 5rem;
-  }
-  .stock-btn {
-    gap: 46rem;
-  }
+@media (max-width: 110em) {
   .stock-gap {
     gap: 20rem;
   }
-  .getproducts {
-    max-width: 50%;
+  .stock-btn {
+    gap: 70rem;
   }
 }
 
-/* BELOW 550px (PHONES) */
+/* DESKTOP 1440PX */
 
-@media (max-width: 34em) {
-  /* html {
-    font-size: 44%;
-  } */
-  .section-3 {
-    min-width: 105%;
-  }
-  .section-1 {
-    max-width: 14%;
-    margin-right: 1rem;
-  }
-  .image {
-    max-width: 110%;
-  }
-  .active {
-    max-width: 5rem;
-  }
-  .summary {
-    max-width: 62rem;
-  }
-
-  .stock-btn {
-    gap: 36rem;
+@media (max-width: 90em) {
+  html {
+    font-size: 58%;
   }
   .stock-gap {
     gap: 12rem;
   }
-  .getproducts {
-    max-width: 40%;
+  .stock-btn {
+    gap: 58rem;
   }
 }
+
+/* DESKTOP 1328PX */
+
+@media (max-width: 83em) {
+}
+
+/* DESKTOP 1168PX */
+
+@media (max-width: 75em) {
+  html {
+    font-size: 54%;
+  }
+}
+
+/* TABLET 1040PX */
+
+@media (max-width: 65em) {
+  html {
+    font-size: 53%;
+  }
+}
+
+/* TABLET 880PX */
+
+@media (max-width: 55em) {
+  html {
+    font-size: 52%;
+  }
+}
+
+/* TABLETS 800PX */
+@media (max-width: 50em) {
+  html {
+    font-size: 51%;
+  }
+}
+/*  656PX*/
+@media (max-width: 41em) {
+  html {
+    font-size: 49%;
+  }
+}
+/* MOBILE 496PX */
+@media (max-width: 31em) {
+  html {
+    font-size: 47%;
+  }
+}
+
+/* 400Px */
 
 @media (max-width: 25em) {
-  /* html {
-    font-size: 40%;
-  } */
-
-  /* body {
-    background-color: red;
-  } */
-
-  .summary {
-    height: 100dvh;
-    max-width: 40rem;
-    margin-left: 2rem;
-    /* height: 10rem; */
-    /* max-width: ; */
-    /* gap: 2rem; */
-  }
-
-  .navlinks {
-    margin-top: 6rem;
-  }
-
-  .navlinks ul {
-    gap: 6rem;
-  }
-
-  .table-header {
-    padding: 1.4rem 1rem;
-  }
-
-  .table-data {
-    padding: 1.4rem 1rem;
-  }
-  .login-container,
-  .signup-container {
-    max-width: 50rem;
-  }
-
-  .section-2 {
-    max-height: 50%;
-    gap: 26rem;
-  }
-
-  .stock-btn {
-    gap: 26rem;
-  }
-  .stock-gap {
-    gap: 2rem;
-  }
-  .getproducts {
-    max-width: 40%;
-  }
-  .stock-container {
-    max-width: 20rem;
+  html {
+    font-size: 45%;
   }
 }
 
-/* BELOW 350px */
-@media (max-width: 22em) {
-  /* html {
-    font-size: 40%;
-  } */
-  .summary {
-    max-width: 40rem;
-    margin-left: 2rem;
-    /* gap: 2rem; */
-  }
+/* 288PX */
 
-  .stock-gap {
-    gap: 0rem;
-  }
-  .stock-btn {
-    gap: 20rem;
-  }
-
-  .table-header {
-    padding: 1rem 0.6rem;
-  }
-  .table-data {
-    padding: 1rem 0.6rem;
+@media (max-width: 18em) {
+  html {
+    font-size: 43%;
   }
 }

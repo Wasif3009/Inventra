@@ -111,7 +111,7 @@ const Products = () => {
                   product={selectedProduct}
                 />
               )}
-              <div className="flex items-center justify-between ">
+              <div className="flex items-center  gap-80">
                 <input
                   type="text"
                   className="getproducts"
