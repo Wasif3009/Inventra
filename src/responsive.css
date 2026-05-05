@@ -50,6 +50,18 @@
   html {
     font-size: 52%;
   }
+  .table-container {
+    width: 76rem;
+  }
+  .stock-btn {
+    gap: 52rem;
+  }
+  .stock-gap {
+    gap: 12rem;
+  }
+  .stock-container {
+    min-width: 30rem;
+  }
 }
 
 /* TABLETS 800PX */
@@ -57,17 +69,85 @@
   html {
     font-size: 51%;
   }
+
+  .table-container {
+    width: 68rem;
+  }
+  .stock-btn {
+    gap: 46rem;
+  }
+  .stock-gap {
+    gap: 11rem;
+  }
+  .stock-container {
+    min-width: 28rem;
+  }
+  .getproducts {
+    width: 58%;
+  }
 }
 /*  656PX*/
 @media (max-width: 41em) {
   html {
-    font-size: 49%;
+    font-size: 50%;
+  }
+  .navlinks li {
+    display: none;
+  }
+  .nav-icons {
+    display: inline-block;
+  }
+  .active {
+    width: 8rem;
+  }
+  .summary {
+    width: 75%;
+    margin-left: 5rem;
+  }
+  .getproducts {
+    width: 46%;
+  }
+  .table-container {
+    width: 64rem;
+  }
+  .stock-btn {
+    gap: 40rem;
+  }
+  .stock-gap {
+    gap: 10rem;
+  }
+  .stock-container {
+    min-width: 24rem;
   }
 }
+
 /* MOBILE 496PX */
 @media (max-width: 31em) {
   html {
     font-size: 47%;
+  }
+
+  .table-header {
+    padding: 1rem;
+  }
+  .table-data {
+    padding: 1rem;
+  }
+  .table-container {
+    width: 48rem;
+  }
+  .getproducts {
+    width: 34%;
+  }
+
+  .stock-container {
+    min-width: 16rem;
+  }
+  .stock-gap {
+    gap: 5rem;
+  }
+  .stock-btn {
+    gap: 26rem;
   }
 }
 
@@ -76,6 +156,40 @@
 @media (max-width: 25em) {
   html {
     font-size: 45%;
+  }
+
+  .summary {
+    width: 100%;
+    margin-left: 0rem;
+  }
+  .active {
+    width: 5rem;
+  }
+  /* .section-1 {
+    margin-left: -3rem;
+  } */
+
+  .table-header {
+    padding: 1rem 0rem;
+  }
+  .table-data {
+    padding: 1rem 0rem;
+  }
+  .table-container {
+    width: 38rem;
+  }
+
+  .stock-container {
+    width: 18rem;
+  }
+  .stock-gap {
+    gap: 1rem;
+  }
+  .stock-btn {
+    gap: 16rem;
+  }
+  .getproducts {
+    font-size: 0.9rem;
   }
 }
 

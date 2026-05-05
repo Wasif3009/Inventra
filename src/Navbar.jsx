@@ -26,7 +26,7 @@ const Navbar = ({}) => {
 
   return (
     <div className="section-1  min-h-screen flex flex-col ">
-      <div className="image  flex flex-col items-center w-md justify-center">
+      <div className="image  flex flex-col items-center w-3xs justify-center md:w-sm ">
         <img src="InventraSided.png" alt="Inventra Logo" className="w-3xs" />
       </div>
       <div className="section-2">
