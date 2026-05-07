@@ -387,7 +387,6 @@ body,
 
 .table {
   border-radius: 12px;
-
   min-width: 95%;
   border-collapse: collapse;
   margin-top: 1rem;
@@ -404,7 +403,7 @@ body,
 }
 
 .stock-container {
-  min-width: 34rem;
+  width: 100%;
 }
 
 .out-btn {
@@ -412,7 +411,7 @@ body,
 }
 
 .stock-gap {
-  gap: 16rem;
+  padding: 0rem 4rem;
 }
 
 .create-btn {
@@ -443,6 +442,9 @@ body,
   height: 28rem;
 }
 
+.getproducts-dialog {
+  height: 90%;
+}
 .profile-info {
   padding: 1rem;
   text-align: center;
@@ -476,9 +478,10 @@ body,
   margin-bottom: 0.4rem;
 }
 
+.top-padding {
+  padding: 0rem 1rem;
+}
 .getproducts {
-  width: 100%;
-  max-width: 400px;
   padding: 0.6rem;
   font-size: 1rem;
   color: #e4e4e7;
@@ -511,7 +514,7 @@ body,
   margin-top: 1rem;
   margin-bottom: -1rem;
   margin-left: 1rem;
-  gap: 63rem;
+  padding: 0rem 4rem;
 }
 
 /* 

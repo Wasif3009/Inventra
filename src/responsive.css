@@ -1,12 +1,6 @@
 /* DESKTOP 1760PX */
 
 @media (max-width: 110em) {
-  .stock-gap {
-    gap: 20rem;
-  }
-  .stock-btn {
-    gap: 70rem;
-  }
 }
 
 /* DESKTOP 1440PX */
@@ -14,12 +8,6 @@
 @media (max-width: 90em) {
   html {
     font-size: 58%;
-  }
-  .stock-gap {
-    gap: 12rem;
-  }
-  .stock-btn {
-    gap: 58rem;
   }
 }
 
@@ -53,15 +41,6 @@
   /* .table-container {
     width: 76rem;
   } */
-  .stock-btn {
-    gap: 52rem;
-  }
-  .stock-gap {
-    gap: 12rem;
-  }
-  .stock-container {
-    min-width: 30rem;
-  }
 }
 
 /* TABLETS 800PX */
@@ -73,15 +52,7 @@
   /* .table-container {
     width: 68rem;
   } */
-  .stock-btn {
-    gap: 46rem;
-  }
-  .stock-gap {
-    gap: 11rem;
-  }
-  .stock-container {
-    min-width: 28rem;
-  }
+
   .getproducts {
     width: 58%;
   }
@@ -110,15 +81,6 @@
   /* .table-container {
     width: 64rem;
   } */
-  .stock-btn {
-    gap: 40rem;
-  }
-  .stock-gap {
-    gap: 10rem;
-  }
-  .stock-container {
-    min-width: 24rem;
-  }
 }
 
 /* MOBILE 496PX */
@@ -138,16 +100,6 @@
   } */
   .getproducts {
     width: 34%;
-  }
-
-  .stock-container {
-    min-width: 16rem;
-  }
-  .stock-gap {
-    gap: 5rem;
-  }
-  .stock-btn {
-    gap: 26rem;
   }
 }
 
@@ -184,13 +136,13 @@
   } */
 
   .stock-container {
-    width: 18rem;
+    padding: 0rem;
   }
   .stock-gap {
-    gap: 1rem;
+    padding: 0rem 0rem;
   }
   .stock-btn {
-    gap: 16rem;
+    padding: 0rem;
   }
   .getproducts {
     font-size: 0.9rem;

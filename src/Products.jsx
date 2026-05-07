@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import CreateProducts from "./CreateProducts";
 import UpdateProducts from "./UpdateProducts";
+import GetProducts from "./GetProducts";
 
 const Products = () => {
   const [data, setData] = useState([]);
@@ -15,6 +16,8 @@ const Products = () => {
   const [showUpdate, setShowUpdate] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [fullData, setFullData] = useState([]);
+  const [getProduct, setGetProduct] = useState([]);
+  const [showProduct, setShowProduct] = useState(false);
 
   const token = localStorage.getItem("authToken");
 
@@ -75,6 +78,11 @@ const Products = () => {
     });
     setData(filtered);
   };
+  const handleGet = (item) => {
+    setGetProduct(item);
+    setShowProduct(true);
+    console.log(item);
+  };
   return (
     <div>
       <Toaster
@@ -111,16 +119,27 @@ const Products = () => {
                   product={selectedProduct}
                 />
               )}
-              <div className="flex items-center  justify-between w-full">
-                <input
-                  type="text"
-                  className="getproducts"
-                  onChange={(e) => handleInput(e)}
-                  placeholder="Enter ID to get Products..."
+              {showProduct && (
+                <GetProducts
+                  open={showProduct}
+                  setOpen={setShowProduct}
+                  setDataUpdated={setDataUpdated}
+                  dataUpdated={dataUpdated}
+                  getProduct={getProduct}
                 />
-                <button className="create-btn" onClick={handleAddBtn}>
-                  Create a Product
-                </button>
+              )}
+              <div className="p-16 top-padding">
+                <div className="flex items-center justify-between w-full ">
+                  <input
+                    type="text"
+                    className="w-1/3 getproducts"
+                    onChange={(e) => handleInput(e)}
+                    placeholder="Enter ID to get Products..."
+                  />
+                  <button className="create-btn" onClick={handleAddBtn}>
+                    Create a Product
+                  </button>
+                </div>
               </div>
               {loading ? (
                 <LoadingMessage />
@@ -148,7 +167,8 @@ const Products = () => {
                       return (
                         <tr
                           key={item._id}
-                          className="odd:bg-[#2f2f32] even:bg-[#131316]"
+                          className="odd:bg-[#2f2f32] even:bg-[#131316] cursor-pointer"
+                          onClick={() => handleGet(item)}
                         >
                           <td className="table-data">{index + 1}</td>
                           <td className="table-data">{item.name}</td>
