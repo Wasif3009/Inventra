@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Toaster } from "react-hot-toast";
 import toast from "react-hot-toast";
-import { NavLink, Route, Routes, useNavigate } from "react-router-dom";
-import Login from "./Login";
-import { LuEye } from "react-icons/lu";
-import { LuEyeClosed } from "react-icons/lu";
+import { NavLink, useNavigate } from "react-router-dom";
+import { LuEye, LuEyeClosed } from "react-icons/lu";
+
 const SignUp = () => {
   const [form, setForm] = useState({
     name: "",
@@ -19,8 +18,6 @@ const SignUp = () => {
   const handleSignUp = (e) => {
     e.preventDefault();
 
-    console.log("FORM", form);
-
     fetch(`${import.meta.env.VITE_BASE_URL}/signup`, {
       method: "POST",
       headers: {
@@ -33,20 +30,24 @@ const SignUp = () => {
           if (!res.ok) {
             throw new Error(data.message || "Something went wrong");
           }
+
           return data;
         });
       })
       .then((data) => {
         toast.success(data.message || "Sign Up Successful");
+
         navigate("/login");
       })
       .catch((error) => {
         toast.error(error.message);
+
         console.log(error);
       });
   };
+
   return (
-    <div className="signup">
+    <div className="min-h-screen bg-[#18181b] flex items-center justify-center px-4">
       <Toaster
         position="bottom-center"
         reverseOrder={false}
@@ -58,68 +59,83 @@ const SignUp = () => {
           },
         }}
       />
-      <div className="signup-container">
-        <h2> Welcome to Sign Up</h2>
-        <div className="signup-form">
-          <form
-            onSubmit={handleSignUp}
-            className="flex flex-col items-center justify-center"
-            x
-          >
-            <div className="input-fields">
-              Enter Your Name
-              <input
-                type="text"
-                placeholder="Enter Your Name"
-                required
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
-              />
-            </div>
 
-            <div className="input-fields">
-              Enter your Email
-              <input
-                type="text"
-                placeholder="Enter Your Email"
-                required
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-              />
-            </div>
+      <div className="w-full max-w-xs sm:max-w-sm bg-[#202024] border border-[#3f3f46] rounded-xl p-4 sm:p-5 shadow-md">
+        <h2 className="text-[#9333ae] text-xl sm:text-2xl  text-center mb-5">
+          Welcome to Sign Up
+        </h2>
 
-            <div className="input-fields">
-              Enter Your Password
-              <div className="password-wrapper flex items-center">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Enter Your Password"
-                  required
-                  onChange={(e) =>
-                    setForm({ ...form, password: e.target.value })
-                  }
+        <form onSubmit={handleSignUp} className="flex flex-col gap-3">
+          {/* Name */}
+          <div className="flex flex-col gap-1">
+            <label className="text-gray-200 text-sm">Enter Your Name</label>
+
+            <input
+              type="text"
+              placeholder="Enter Your Name"
+              required
+              className="bg-[#27272a] border border-[#3f3f46] px-3 py-2 text-sm text-white outline-none focus:border-[#9333ae] transition-all w-full"
+              onChange={(e) => setForm({ ...form, name: e.target.value })}
+            />
+          </div>
+
+          {/* Email */}
+          <div className="flex flex-col gap-1">
+            <label className="text-gray-200 text-sm">Enter Your Email</label>
+
+            <input
+              type="text"
+              placeholder="Enter Your Email"
+              required
+              className="bg-[#27272a] border border-[#3f3f46] px-3 py-2  text-sm text-white outline-none focus:border-[#9333ae] transition-all w-full"
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+            />
+          </div>
+
+          {/* Password */}
+          <div className="flex flex-col gap-1">
+            <label className="text-gray-200 text-sm">Enter Your Password</label>
+
+            <div className="relative w-full">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Enter Your Password"
+                required
+                className="bg-[#27272a] border border-[#3f3f46] px-3 py-2 text-sm text-white outline-none focus:border-[#9333ae] transition-all w-full pr-10"
+                onChange={(e) => setForm({ ...form, password: e.target.value })}
+              />
+
+              {showPassword ? (
+                <LuEyeClosed
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-300 cursor-pointer"
+                  size={16}
+                  onClick={() => setShowPassword(!showPassword)}
                 />
-                {showPassword ? (
-                  <LuEyeClosed
-                    className="eye-icon"
-                    size={16}
-                    onClick={() => setShowPassword(!showPassword)}
-                  />
-                ) : (
-                  <LuEye
-                    className="eye-icon"
-                    size={16}
-                    onClick={() => setShowPassword(!showPassword)}
-                  />
-                )}
-              </div>
+              ) : (
+                <LuEye
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-300 cursor-pointer"
+                  size={16}
+                  onClick={() => setShowPassword(!showPassword)}
+                />
+              )}
             </div>
+          </div>
 
-            <button>Sign Up</button>
-          </form>
-        </div>
-        <p>
+          {/* Button */}
+          <div className="flex items-center justify-center">
+            <button className="bg-[#9333ae] hover:bg-[#7e2697] transition-all w-24 text-[#18181b] text-sm  py-2 rounded-lg mt-1 cursor-pointer">
+              Sign Up
+            </button>
+          </div>
+        </form>
+
+        <p className="text-gray-300 text-center text-xs sm:text-xs mt-4">
           Already Have An Account?{" "}
-          <NavLink to={"/login"} style={{ color: "#7c3aed" }}>
-            Login Here{" "}
+          <NavLink
+            to={"/login"}
+            className="text-[#9333ae] hover:text-[#a855f7]"
+          >
+            Login Here
           </NavLink>
         </p>
       </div>

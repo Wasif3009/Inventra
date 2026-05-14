@@ -6,9 +6,9 @@
 /* DESKTOP 1440PX */
 
 @media (max-width: 90em) {
-  html {
+  /* html {
     font-size: 58%;
-  }
+  } */
 }
 
 /* DESKTOP 1328PX */
@@ -19,25 +19,25 @@
 /* DESKTOP 1168PX */
 
 @media (max-width: 75em) {
-  html {
+  /* html {
     font-size: 54%;
-  }
+  } */
 }
 
 /* TABLET 1040PX */
 
 @media (max-width: 65em) {
-  html {
+  /* html {
     font-size: 53%;
-  }
+  } */
 }
 
 /* TABLET 880PX */
 
 @media (max-width: 55em) {
-  html {
+  /* html {
     font-size: 52%;
-  }
+  } */
   /* .table-container {
     width: 76rem;
   } */
@@ -45,9 +45,9 @@
 
 /* TABLETS 800PX */
 @media (max-width: 50em) {
-  html {
+  /* html {
     font-size: 51%;
-  }
+  } */
 
   /* .table-container {
     width: 68rem;
@@ -59,9 +59,9 @@
 }
 /*  656PX*/
 @media (max-width: 41em) {
-  html {
+  /* html {
     font-size: 50%;
-  }
+  } */
   .navlinks li {
     display: none;
   }
@@ -85,9 +85,9 @@
 
 /* MOBILE 496PX */
 @media (max-width: 31em) {
-  html {
+  /* html {
     font-size: 47%;
-  }
+  } */
 
   .table-header {
     padding: 1rem;
@@ -106,9 +106,9 @@
 /* 400Px */
 
 @media (max-width: 25em) {
-  html {
+  /* html {
     font-size: 45%;
-  }
+  } */
 
   .summary {
     width: 100%;
@@ -152,7 +152,7 @@
 /* 288PX */
 
 @media (max-width: 18em) {
-  html {
+  /* html {
     font-size: 43%;
-  }
+  } */
 }
