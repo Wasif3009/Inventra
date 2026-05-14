@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import SideBar from "./SideBar";
 import LoadingMessage from "./LoadingMessage";
-import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+
 import CreateProducts from "./CreateProducts";
 import UpdateProducts from "./UpdateProducts";
 import GetProducts from "./GetProducts";
@@ -11,17 +11,20 @@ import GetProducts from "./GetProducts";
 const Products = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+
   const [showCreate, setShowCreate] = useState(false);
   const [dataUpdated, setDataUpdated] = useState(false);
+
   const [showUpdate, setShowUpdate] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+
   const [fullData, setFullData] = useState([]);
+
   const [getProduct, setGetProduct] = useState([]);
   const [showProduct, setShowProduct] = useState(false);
 
   const token = localStorage.getItem("authToken");
 
-  const navigate = useNavigate();
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BASE_URL}/products`, {
       method: "GET",
@@ -30,11 +33,8 @@ const Products = () => {
         Authorization: `Bearer ${token}`,
       },
     })
-      .then((res) => {
-        return res.json();
-      })
+      .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setFullData(data);
         setData(data);
 
@@ -53,12 +53,10 @@ const Products = () => {
         Authorization: `Bearer ${token}`,
       },
     })
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        // Idhar prev mai previous Array jayega fir el mai single single element jayege aur agar gya hu element ki id delete ki hui element ke id se match nahi hoti toh prev array mai wo element rakh warna hata
+      .then((res) => res.json())
+      .then(() => {
         setData((prev) => prev.filter((el) => el._id !== item._id));
+
         toast.success(`${item.name} Deleted Successfully`);
       });
   };
@@ -69,6 +67,7 @@ const Products = () => {
 
   const handleUpdate = (item) => {
     setSelectedProduct(item);
+
     setShowUpdate(true);
   };
 
@@ -76,129 +75,228 @@ const Products = () => {
     const filtered = fullData.filter((item) => {
       return item._id.includes(e.target.value);
     });
+
     setData(filtered);
   };
+
   const handleGet = (item) => {
     setGetProduct(item);
+
     setShowProduct(true);
-    console.log(item);
   };
+
   return (
-    <div>
+    <div className="w-full">
       <Toaster
         position="bottom-center"
         reverseOrder={false}
         toastOptions={{
           style: {
-            backgroundColor: "#2a2a2e",
+            backgroundColor: "#2A2A2E",
             color: "#F3F4F6",
             zIndex: 9999,
           },
         }}
       />
-      <div className="flex dashboard">
+
+      <div className="flex  min-h-screen">
         <Navbar />
-        <div className="flex flex-col left-container">
+
+        <div className="flex flex-col flex-1 overflow-hidden">
           <SideBar />
-          <div className="categories flex items-start  ">
-            <div className="shadow-lg  table-container rounded-lg ">
-              {showCreate && (
-                <CreateProducts
-                  open={showCreate}
-                  setOpen={setShowCreate}
-                  setDataUpdated={setDataUpdated}
-                  dataUpdated={dataUpdated}
+
+          <div className="p-3 sm:p-4 md:p-5">
+            {/* Dialogs */}
+            {showCreate && (
+              <CreateProducts
+                open={showCreate}
+                setOpen={setShowCreate}
+                setDataUpdated={setDataUpdated}
+                dataUpdated={dataUpdated}
+              />
+            )}
+
+            {showUpdate && (
+              <UpdateProducts
+                open={showUpdate}
+                setOpen={setShowUpdate}
+                setDataUpdated={setDataUpdated}
+                dataUpdated={dataUpdated}
+                product={selectedProduct}
+              />
+            )}
+
+            {showProduct && (
+              <GetProducts
+                open={showProduct}
+                setOpen={setShowProduct}
+                setDataUpdated={setDataUpdated}
+                dataUpdated={dataUpdated}
+                getProduct={getProduct}
+              />
+            )}
+
+            {/* Table Container */}
+            <div className="">
+              {/* Top Section */}
+              <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-between p-4">
+                <input
+                  type="text"
+                  placeholder="Enter ID to get Products..."
+                  onChange={(e) => handleInput(e)}
+                  className="
+                    w-full
+                    sm:w-[240px]
+                    md:w-[300px]
+                    bg-[#27272A]
+                    border
+                    border-[#3F3F46]
+                    rounded-lg
+                    px-4
+                    py-2.5
+                    text-sm
+                    text-[#F3F4F6]
+                    outline-none
+                    focus:border-[#9333ea]
+                    transition-all
+                  "
                 />
-              )}
-              {showUpdate && (
-                <UpdateProducts
-                  open={showUpdate}
-                  setOpen={setShowUpdate}
-                  setDataUpdated={setDataUpdated}
-                  dataUpdated={dataUpdated}
-                  product={selectedProduct}
-                />
-              )}
-              {showProduct && (
-                <GetProducts
-                  open={showProduct}
-                  setOpen={setShowProduct}
-                  setDataUpdated={setDataUpdated}
-                  dataUpdated={dataUpdated}
-                  getProduct={getProduct}
-                />
-              )}
-              <div className="p-16 top-padding">
-                <div className="flex items-center justify-between w-full ">
-                  <input
-                    type="text"
-                    className="w-1/3 getproducts"
-                    onChange={(e) => handleInput(e)}
-                    placeholder="Enter ID to get Products..."
-                  />
-                  <button className="create-btn" onClick={handleAddBtn}>
-                    Create a Product
-                  </button>
-                </div>
+
+                <button
+                  onClick={handleAddBtn}
+                  className="
+                    bg-[#9333ea]
+                    hover:bg-[#6D28D9]
+                    transition-all
+                    text-white
+                    px-4
+                    py-2.5
+                    rounded-lg
+                    text-sm
+                    font-medium
+                  "
+                >
+                  Create Product
+                </button>
               </div>
+
+              {/* Table */}
               {loading ? (
                 <LoadingMessage />
               ) : data.length === 0 ? (
-                <div className="text-white p-5 text-center flex items-center justify-center h-full text-3xl">
+                <div className="text-[#F3F4F6] text-center py-10 text-lg sm:text-xl">
                   No products found
                 </div>
               ) : (
-                <table className="text-[#f3f4f6] text-center table">
-                  <thead className="sticky top-0 z-10">
-                    <tr>
-                      <th className="table-header">No.</th>
-                      <th className="table-header">Name</th>
-                      <th className="table-header">Category</th>
+                <div className="overflow-x-auto">
+                  <table className="w-full min-w-[720px] text-[#F3F4F6] border-collapse bg-[#1F1F23] border border-[#2A2A2E] rounded-xl overflow-hidden shadow-lg">
+                    <thead className="bg-[#131316]">
+                      <tr>
+                        <th className="px-4 py-3 text-sm font-medium">No.</th>
 
-                      <th className="table-header">Quantity</th>
-                      <th className="table-header">Price</th>
+                        <th className="px-4 py-3 text-sm font-medium">Name</th>
 
-                      <th className="table-header">Action</th>
-                    </tr>
-                  </thead>
+                        <th className="px-4 py-3 text-sm font-medium">
+                          Category
+                        </th>
 
-                  <tbody>
-                    {data.map((item, index) => {
-                      return (
+                        <th className="px-4 py-3 text-sm font-medium">
+                          Quantity
+                        </th>
+
+                        <th className="px-4 py-3 text-sm font-medium">Price</th>
+
+                        <th className="px-4 py-3 text-sm font-medium">
+                          Action
+                        </th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      {data.map((item, index) => (
                         <tr
                           key={item._id}
-                          className="odd:bg-[#2f2f32] even:bg-[#131316] cursor-pointer"
                           onClick={() => handleGet(item)}
+                          className="
+                            odd:bg-[#2A2A2E]
+                            even:bg-[#1A1A1D]
+                            hover:bg-[#2F2F35]
+                            transition-all
+                            cursor-pointer
+                          "
                         >
-                          <td className="table-data">{index + 1}</td>
-                          <td className="table-data">{item.name}</td>
-                          <td className="table-data">{item.category}</td>
+                          <td className="px-4 py-3 text-sm text-center">
+                            {index + 1}
+                          </td>
 
-                          <td className="table-data">{item.quantity}</td>
-                          <td className="table-data">{item.price}</td>
+                          <td className="px-4 py-3 text-sm text-center">
+                            {item.name}
+                          </td>
 
-                          <td className="table-data">
-                            <div className="flex items-center justify-center gap-6">
+                          <td className="px-4 py-3 text-sm text-center">
+                            {item.category}
+                          </td>
+
+                          <td className="px-4 py-3 text-sm text-center">
+                            {item.quantity}
+                          </td>
+
+                          <td className="px-4 py-3 text-sm text-center">
+                            ₹{item.price}
+                          </td>
+
+                          <td className="px-4 py-3">
+                            <div className="flex items-center justify-center gap-2">
                               <button
-                                className="update-btn"
-                                onClick={() => handleUpdate(item)}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+
+                                  handleUpdate(item);
+                                }}
+                                className="
+                                  bg-[#9333ea]
+                                  hover:bg-[#6D28D9]
+                                  text-white
+                                  px-3
+                                  py-2
+                                  rounded-lg
+                                  text-xs
+                                  sm:text-sm
+                                  font-medium
+                                  transition-all
+                                "
                               >
                                 Update
                               </button>
 
                               <button
-                                className="delete-btn"
-                                onClick={() => handleDelete(item)}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+
+                                  handleDelete(item);
+                                }}
+                                className="
+                                  bg-red-600
+                                  hover:bg-red-700
+                                  text-white
+                                  px-3
+                                  py-2
+                                  rounded-lg
+                                  text-xs
+                                  sm:text-sm
+                                  font-medium
+                                  transition-all
+                                "
                               >
                                 Delete
                               </button>
                             </div>
                           </td>
                         </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               )}
             </div>
           </div>

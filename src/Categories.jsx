@@ -3,15 +3,16 @@ import Navbar from "./Navbar";
 import SideBar from "./SideBar";
 import LoadingMessage from "./LoadingMessage";
 import toast, { Toaster } from "react-hot-toast";
-import CreateComponent from "./CreateCategory";
 import CreateCategory from "./CreateCategory";
 
 const Add = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const token = localStorage.getItem("authToken");
+
   const [showCreate, setShowCreate] = useState(false);
   const [dataUpdated, setDataUpdated] = useState(false);
+
+  const token = localStorage.getItem("authToken");
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BASE_URL}/categories`, {
@@ -21,18 +22,15 @@ const Add = () => {
         Authorization: `Bearer ${token}`,
       },
     })
-      .then((res) => {
-        return res.json();
-      })
+      .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setData(data);
-        console.log("Fetch Complete");
+
         setLoading(false);
       })
       .catch((err) => {
-        console.log("Something Went Wrong");
         console.log(err);
+
         setLoading(false);
       });
   }, [dataUpdated]);
@@ -45,12 +43,10 @@ const Add = () => {
         Authorization: `Bearer ${token}`,
       },
     })
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        // Idhar prev mai previous Array jayega fir el mai single single element jayege aur agar gya hu element ki id delete ki hui element ke id se match nahi hoti toh prev array mai wo element rakh warna hata
+      .then((res) => res.json())
+      .then(() => {
         setData((prev) => prev.filter((el) => el._id !== item._id));
+
         toast.success(`${item.name} Deleted Successfully`);
       });
   };
@@ -60,50 +56,79 @@ const Add = () => {
   };
 
   return (
-    <div>
+    <div className="bg-[#18181B] min-h-screen">
       <Toaster
         position="bottom-center"
         reverseOrder={false}
         toastOptions={{
           style: {
-            backgroundColor: "#2a2a2e",
+            backgroundColor: "#2A2A2E",
             color: "#F3F4F6",
             zIndex: 9999,
           },
         }}
       />
-      <div className="flex dashboard">
+
+      <div className="flex  lg:flex-row min-h-screen">
         <Navbar />
-        <div className="flex flex-col left-container">
+
+        <div className="flex flex-col flex-1 overflow-hidden">
           <SideBar />
 
-          <div className="categories flex items-start ">
-            <div className="shadow-lg table-container rounded-lg">
-              {showCreate && (
-                <CreateCategory
-                  open={showCreate}
-                  setOpen={setShowCreate}
-                  setDataUpdated={setDataUpdated}
-                  dataUpdated={dataUpdated}
-                />
-              )}
-              <button className="create-btn" onClick={handleAddBtn}>
-                Create a Category
-              </button>
+          <div className="p-3 sm:p-4 md:p-5">
+            {/* Dialog */}
+            {showCreate && (
+              <CreateCategory
+                open={showCreate}
+                setOpen={setShowCreate}
+                setDataUpdated={setDataUpdated}
+                dataUpdated={dataUpdated}
+              />
+            )}
+
+            {/* Table Container */}
+            <div className="">
+              {/* Top Section */}
+              <div className="flex justify-start p-4">
+                <button
+                  onClick={handleAddBtn}
+                  className="
+                    bg-[#9333ea]
+                    hover:bg-[#6D28D9]
+                    transition-all
+                    text-white
+                    px-4
+                    py-2.5
+                    rounded-lg
+                    text-sm
+                    font-medium
+                  "
+                >
+                  Create Category
+                </button>
+              </div>
+
+              {/* Table */}
               {loading ? (
                 <LoadingMessage />
               ) : data.length === 0 ? (
-                <div className="text-white p-5 text-center flex justify-center text-3xl items-center h-full">
+                <div className="text-[#F3F4F6] text-center py-10 text-lg sm:text-xl">
                   No data found
                 </div>
               ) : (
-                <div className="flex flex-col gap-4 ">
-                  <table className="text-[#f3f4f6] text-center table">
-                    <thead className="sticky top-0 z-10">
+                <div className="overflow-x-auto">
+                  <table className="w-full min-w-[500px] text-[#F3F4F6] border-collapse bg-[#1F1F23] border border-[#2A2A2E] rounded-xl overflow-hidden shadow-lg">
+                    <thead className="bg-[#131316]">
                       <tr>
-                        <th className="table-header">No.</th>
-                        <th className="table-header">Category Name</th>
-                        <th className="table-header">Action</th>
+                        <th className="px-4 py-3 text-sm font-medium">No.</th>
+
+                        <th className="px-4 py-3 text-sm font-medium">
+                          Category Name
+                        </th>
+
+                        <th className="px-4 py-3 text-sm font-medium">
+                          Action
+                        </th>
                       </tr>
                     </thead>
 
@@ -111,14 +136,36 @@ const Add = () => {
                       {data.map((item, index) => (
                         <tr
                           key={item._id}
-                          className="odd:bg-[#2f2f32] even:bg-[#131316]"
+                          className="
+                            odd:bg-[#2A2A2E]
+                            even:bg-[#1A1A1D]
+                            hover:bg-[#2F2F35]
+                            transition-all
+                          "
                         >
-                          <td className="table-data">{index + 1}</td>
-                          <td className="table-data">{item.name}</td>
-                          <td className="table-data">
+                          <td className="px-4 py-3 text-sm text-center">
+                            {index + 1}
+                          </td>
+
+                          <td className="px-4 py-3 text-sm text-center">
+                            {item.name}
+                          </td>
+
+                          <td className="px-4 py-3 text-center">
                             <button
-                              className="delete-btn"
                               onClick={() => handleDelete(item)}
+                              className="
+                                bg-red-600
+                                hover:bg-red-700
+                                transition-all
+                                text-white
+                                px-3
+                                py-2
+                                rounded-lg
+                                text-xs
+                                sm:text-sm
+                                font-medium
+                              "
                             >
                               Delete
                             </button>

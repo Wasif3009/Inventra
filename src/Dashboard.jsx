@@ -4,9 +4,9 @@ import SideBar from "./SideBar";
 
 import { FiPackage } from "react-icons/fi";
 import { AiOutlineBarChart } from "react-icons/ai";
-import { FaBox } from "react-icons/fa6";
 import { FaExclamationTriangle } from "react-icons/fa";
 import { FaTimesCircle } from "react-icons/fa";
+
 import SummaryCard from "./SummaryCard";
 import LoadingMessage from "./LoadingMessage";
 
@@ -16,7 +16,9 @@ const Dashboard = () => {
   const [lowStock, setLowStock] = useState(0);
   const [outOfStock, setOutOfStock] = useState(0);
   const [loading, setLoading] = useState(true);
+
   const token = localStorage.getItem("authToken");
+
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BASE_URL}/dashboard/summary`, {
       method: "GET",
@@ -25,15 +27,13 @@ const Dashboard = () => {
         Authorization: `Bearer ${token}`,
       },
     })
-      .then((res) => {
-        return res.json();
-      })
+      .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setProducts(data.totalProducts);
         setQuantity(data.totalQuantity);
         setLowStock(data.lowStock);
         setOutOfStock(data.outOfStock);
+
         setLoading(false);
       })
       .catch(() => {
@@ -69,27 +69,55 @@ const Dashboard = () => {
   ];
 
   return (
-    <div>
-      <div className="dashboard flex">
-        <Navbar />
-        <div className="flex flex-col left-container">
-          <SideBar />
-          {/* Style Component Here Below SideBar */}
-          <div className="summary flex items-center justify-center gap-10 flex-wrap">
-            {loading ? (
-              <LoadingMessage />
-            ) : (
-              cards.map((card, index) => (
-                <SummaryCard
-                  key={index}
-                  title1={card.title1}
-                  title2={card.title2}
-                  value={card.value}
-                  Icon={card.icon}
-                  loading={loading}
-                />
-              ))
-            )}
+    <div className="bg-[#18181b] min-h-screen text-[#F3F4F6] flex">
+      <Navbar />
+      <div className=" flex flex-col  min-h-screen w-full">
+        {/* Navbar */}
+
+        <SideBar />
+        {/* Right Section */}
+        <div className="flex flex-col flex-1 w-full overflow-hidden">
+          {/* Sidebar */}
+
+          {/* Dashboard Content */}
+          <div className="flex-1  sm:px-6 md:px-8 md:py-6 lg:py-6">
+            {/* Heading */}
+            <div className="mb-6">
+              <h1 className="text-xl sm:text-xl  text-[#F3F4F6] hidden md:block">
+                Dashboard Overview
+              </h1>
+
+              <p className="text-xs text-[#A1A1AA] mt-1 hidden md:block">
+                Monitor your inventory summary and stock details
+              </p>
+            </div>
+
+            {/* Summary Cards */}
+            <div className="flex flex-wrap gap-6 sm:gap-10 justify-center ">
+              {loading ? (
+                <LoadingMessage />
+              ) : (
+                cards.map((card, index) => (
+                  <div
+                    key={index}
+                    className="
+                      
+                      sm:w-[30%]
+                      lg:w-40
+                      xl:w-50
+                    "
+                  >
+                    <SummaryCard
+                      title1={card.title1}
+                      title2={card.title2}
+                      value={card.value}
+                      Icon={card.icon}
+                      loading={loading}
+                    />
+                  </div>
+                ))
+              )}
+            </div>
           </div>
         </div>
       </div>

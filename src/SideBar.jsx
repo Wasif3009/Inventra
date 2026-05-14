@@ -1,17 +1,20 @@
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import { CgProfile } from "react-icons/cg";
 import Profile from "./Profile";
 
 const SideBar = () => {
   const [open, setOpen] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
-  let user = localStorage.getItem("userName");
+
+  const user = localStorage.getItem("userName");
+
   const handleProfile = () => {
     setOpen(true);
     setShowProfile(true);
   };
+
   return (
-    <div className="section-3 text-[#F3F4F6]  h-14 flex items-center justify-between">
+    <>
       {showProfile && (
         <Profile
           open={open}
@@ -20,9 +23,59 @@ const SideBar = () => {
           setShowProfile={setShowProfile}
         />
       )}
-      <p className="text-2xl">Hello,{user}</p>
-      <CgProfile size={20} className="cursor-pointer" onClick={handleProfile} />
-    </div>
+
+      <div
+        className="
+          w-full
+          bg-[#1F1F23]
+          border-b
+          border-[#2A2A2E]
+            shadow-[0_4px_10px_rgba(0,0,0,0.25)]
+          px-4
+          sm:px-5
+          py-1
+          flex
+          items-center
+          justify-between
+        "
+      >
+        {/* User Info */}
+        <div className="flex flex-col overflow-hidden">
+          <p
+            className="
+              text-sm
+              sm:text-base
+              md:text-lg
+              font-medium
+              text-[#F3F4F6]
+              truncate
+              max-w-[180px]
+              sm:max-w-[260px]
+              md:max-w-[400px]
+            "
+          >
+            Hello, {user}
+          </p>
+        </div>
+
+        {/* Profile Icon */}
+        <button
+          onClick={handleProfile}
+          className="
+            flex
+            items-center
+            justify-center
+            
+        
+        
+          
+            cursor-pointer
+          "
+        >
+          <CgProfile size={22} className="text-[#F3F4F6]" />
+        </button>
+      </div>
+    </>
   );
 };
 

@@ -1,78 +1,219 @@
 import React from "react";
-import { NavLink, Route, Routes, useNavigate } from "react-router-dom";
-import SignUp from "./Authentication/SignUp";
-import Login from "./Authentication/Login";
+import { NavLink, useNavigate } from "react-router-dom";
+
 import { IoLogOutOutline } from "react-icons/io5";
 import { MdSpaceDashboard } from "react-icons/md";
 import { HiOutlineCube } from "react-icons/hi";
 import { MdCategory } from "react-icons/md";
 import { AiOutlineStock } from "react-icons/ai";
 
-const Navbar = ({}) => {
+const Navbar = () => {
   const navigate = useNavigate();
-  // let isUserLogged = localStorage.getItem("authToken");
-  // let btnText;
-
-  // if (isUserLogged) {
-  //   btnText = "Logout";
-  // } else {
-  //   btnText = "Login";
-  // }
 
   const handleLogout = () => {
     localStorage.removeItem("authToken");
+
     navigate("/login");
   };
 
   return (
-    <div className="section-1  flex flex-col ">
-      <div className="image  flex flex-col items-center w-3xs justify-center md:w-sm ">
-        <img src="InventraSided.png" alt="Inventra Logo" className="w-3xs" />
-      </div>
-      <div className="section-2">
-        <div className="navlinks">
-          <ul className="flex flex-col gap-16 justify-center items-center text-[#F3F4F6] text-xl">
-            <NavLink to="/">
-              <div className="flex items-center justify-center gap-2">
-                <MdSpaceDashboard size={18} className=" nav-icons" />
-                <li>Dashboard</li>
+    <div
+      className="
+        w-18
+        md:w-36
+        lg:w-40
+        bg-[#18181b]
+  flex
+        flex-col
+        justify-between
+        px-3
+        py-4
+        shrink-0
+        lg:min-h-screen
+      "
+    >
+      {/* Top Section */}
+      <div>
+        {/* Logo */}
+        <div className="flex items-center justify-center mb-6 lg:mb-8">
+          <img
+            src="InventraSided.png"
+            alt="Inventra Logo"
+            className="
+              w-[140px]
+              sm:w-[160px]
+              lg:w-[180px]
+              
+            "
+          />
+        </div>
+
+        {/* Nav Links */}
+        <div>
+          <ul
+            className="
+              flex
+              flex-row
+              lg:flex-col
+              flex-wrap
+              justify-center
+              gap-2
+              lg:gap-3
+              text-[#F3F4F6]
+            "
+          >
+            {/* Dashboard */}
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `
+                ${
+                  isActive
+                    ? "bg-[#9333ea] text-white"
+                    : "bg-transparent hover:bg-[#27272A]"
+                }
+
+                transition-all
+                duration-200
+                rounded-lg
+                px-3
+                py-2.5
+                w-[125px]
+                
+              `
+              }
+            >
+              <div className="flex items-center justify-center lg:justify-start gap-2">
+                <MdSpaceDashboard size={18} />
+
+                <li className="list-none text-sm font-medium hidden lg:block">
+                  Dashboard
+                </li>
               </div>
             </NavLink>
 
-            <NavLink to="/products">
-              <div className="flex items-center justify-center gap-2">
-                <HiOutlineCube size={20} className="nav-icons" />
-                <li>Products</li>
+            {/* Products */}
+            <NavLink
+              to="/products"
+              className={({ isActive }) =>
+                `
+                ${
+                  isActive
+                    ? "bg-[#9333ea] text-white"
+                    : "bg-transparent hover:bg-[#27272A]"
+                }
+
+                transition-all
+                duration-200
+                rounded-lg
+                px-3
+                py-2.5
+                w-[125px]
+                
+              `
+              }
+            >
+              <div className="flex items-center justify-center lg:justify-start gap-2">
+                <HiOutlineCube size={18} />
+
+                <li className="list-none text-sm font-medium hidden lg:block">
+                  Products
+                </li>
               </div>
             </NavLink>
-            <NavLink to="/categories">
-              <div className="flex items-center justify-center gap-2">
-                <MdCategory size={18} className=" nav-icons" />
-                <li>Category</li>
+
+            {/* Categories */}
+            <NavLink
+              to="/categories"
+              className={({ isActive }) =>
+                `
+                ${
+                  isActive
+                    ? "bg-[#9333ea] text-white"
+                    : "bg-transparent hover:bg-[#27272A]"
+                }
+
+                transition-all
+                duration-200
+                rounded-lg
+                px-3
+                py-2.5
+                w-[125px]
+                
+              `
+              }
+            >
+              <div className="flex items-center justify-center lg:justify-start gap-2">
+                <MdCategory size={18} />
+
+                <li className="list-none text-sm font-medium hidden lg:block">
+                  Category
+                </li>
               </div>
             </NavLink>
-            <NavLink to="/stock">
-              <div className="flex items-center justify-center gap-2">
-                <AiOutlineStock size={21} className="nav-icons" />
-                <li>Stock</li>
+
+            {/* Stock */}
+            <NavLink
+              to="/stock"
+              className={({ isActive }) =>
+                `
+                ${
+                  isActive
+                    ? "bg-[#9333ea] text-white"
+                    : "bg-transparent hover:bg-[#27272A]"
+                }
+
+                transition-all
+                duration-200
+                rounded-lg
+                px-3
+                py-2.5
+                w-[125px]
+                
+              `
+              }
+            >
+              <div className="flex items-center justify-center lg:justify-start gap-2">
+                <AiOutlineStock size={18} />
+
+                <li className="list-none text-sm font-medium hidden lg:block">
+                  Stock
+                </li>
               </div>
             </NavLink>
-            {/* <NavLink to="/settings">
-                <li>Settings</li>
-              </NavLink> */}
           </ul>
         </div>
-        <div className="nav-end flex flex-col items-center justify-end gap-2 ">
-          <div className="flex gap-2 items-center justify-center logout ">
-            <IoLogOutOutline className="text-[#F3F4F6] text-2xl" />
-            <button
-              className="text-[#F3F4F6] text-xl cursor-pointer"
-              onClick={handleLogout}
-            >
-              Logout
-            </button>
-          </div>
-        </div>
+      </div>
+
+      {/* Logout */}
+      <div className="mt-6 lg:mt-0 flex justify-center lg:justify-start">
+        <button
+          onClick={handleLogout}
+          className="
+            flex
+            items-center
+            
+            gap-2
+            bg-[#27272A]
+            hover:bg-[#9333ea]
+            transition-all
+            duration-200
+            text-[#F3F4F6]
+            md:px-3
+            md:py-2.5
+            rounded-lg
+            px-1
+            py-2
+            w-20
+            lg:w-full
+            justify-center
+           
+          "
+        >
+          <IoLogOutOutline className="md:text-sm text-xs " />
+
+          <span className="md:text-sm text-xs font-medium">Logout</span>
+        </button>
       </div>
     </div>
   );
