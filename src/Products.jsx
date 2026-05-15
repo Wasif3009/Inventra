@@ -3,10 +3,10 @@ import Navbar from "./Navbar";
 import SideBar from "./SideBar";
 import LoadingMessage from "./LoadingMessage";
 import toast, { Toaster } from "react-hot-toast";
-
 import CreateProducts from "./CreateProducts";
 import UpdateProducts from "./UpdateProducts";
 import GetProducts from "./GetProducts";
+import Button from "./Components/Button";
 
 const Products = () => {
   const [data, setData] = useState([]);
@@ -162,22 +162,10 @@ const Products = () => {
                   "
                 />
 
-                <button
-                  onClick={handleAddBtn}
-                  className="
-                    bg-[#9333ea]
-                    hover:bg-[#6D28D9]
-                    transition-all
-                    text-white
-                    px-4
-                    py-2.5
-                    rounded-lg
-                    text-sm
-                    font-medium
-                  "
-                >
-                  Create Product
-                </button>
+                <Button
+                  btnText="Create a Product"
+                  btnHandler={handleAddBtn}
+                ></Button>
               </div>
 
               {/* Table */}

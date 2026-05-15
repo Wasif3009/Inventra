@@ -6,6 +6,7 @@ import StockLow from "./StockLow";
 import LoadingMessage from "./LoadingMessage";
 import AddLowStock from "./AddLowStock";
 import AddOutStock from "./AddOutStock";
+import Button from "./Components/Button";
 
 const Stock = ({ loading }) => {
   const [openLow, setOpenLow] = useState(false);
@@ -49,43 +50,12 @@ const Stock = ({ loading }) => {
               <div className="flex flex-col gap-5">
                 {/* Buttons */}
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                  <button
-                    onClick={handleAddLow}
-                    className="
-                      bg-[#9333ea]
-                      hover:bg-[#6D28D9]
-                      transition-all
-                      text-white
-                      px-4
-                      py-2.5
-                      rounded-lg
-                      text-sm
-                      font-medium
-                      w-full
-                      sm:w-fit
-                    "
-                  >
-                    Add Low Stock
-                  </button>
+                  <Button btnText={"Add Low Stock"} btnHandler={handleAddLow} />
 
-                  <button
-                    onClick={handleAddOut}
-                    className="
-                      bg-[#9333ea]
-                      hover:bg-[#6D28D9]
-                      transition-all
-                      text-white
-                      px-4
-                      py-2.5
-                      rounded-lg
-                      text-sm
-                      font-medium
-                      w-full
-                      sm:w-fit
-                    "
-                  >
-                    Add Out Of Stock
-                  </button>
+                  <Button
+                    btnText={"Add Out of Stock"}
+                    btnHandler={handleAddOut}
+                  />
                 </div>
 
                 {/* Stock Tables */}

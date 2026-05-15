@@ -65,8 +65,9 @@ body {
 .dialog {
   width: 30%;
   max-width: 28rem;
+  max-height: 90vh;
 
-  padding: 1.25rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -89,15 +90,15 @@ body {
 @media (min-width: 640px) {
   .dialog {
     padding: 1.5rem;
-    max-width: 32rem;
+    width: 60%;
   }
 }
 
 /* Desktop */
 @media (min-width: 1024px) {
   .dialog {
-    padding: 2rem;
-    max-width: 36rem;
+    padding: 1rem;
+    width: 70%;
   }
 }
 

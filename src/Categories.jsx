@@ -4,6 +4,7 @@ import SideBar from "./SideBar";
 import LoadingMessage from "./LoadingMessage";
 import toast, { Toaster } from "react-hot-toast";
 import CreateCategory from "./CreateCategory";
+import Button from "./Components/Button";
 
 const Add = () => {
   const [data, setData] = useState([]);
@@ -90,22 +91,10 @@ const Add = () => {
             <div className="">
               {/* Top Section */}
               <div className="flex justify-start p-4">
-                <button
-                  onClick={handleAddBtn}
-                  className="
-                    bg-[#9333ea]
-                    hover:bg-[#6D28D9]
-                    transition-all
-                    text-white
-                    px-4
-                    py-2.5
-                    rounded-lg
-                    text-sm
-                    font-medium
-                  "
-                >
-                  Create Category
-                </button>
+                <Button
+                  btnText={"Create a Category"}
+                  btnHandler={handleAddBtn}
+                ></Button>
               </div>
 
               {/* Table */}

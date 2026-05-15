@@ -29,6 +29,7 @@ const Navbar = () => {
         px-3
         py-4
         shrink-0
+        min-h-screen
         lg:min-h-screen
       "
     >

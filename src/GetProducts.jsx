@@ -28,38 +28,38 @@ const GetProducts = ({ open, setOpen, getProduct }) => {
   return (
     <div>
       <Dialog open={open} onOpenChange={setOpen} className="dialog">
-        <DialogContent className="bg-zinc-900 border border-zinc-700 rounded-xl p-6 dialog getproducts-dialog">
+        <DialogContent className="bg-zinc-900 border border-zinc-700 rounded-xl p-4 dialog getproducts-dialog">
           <DialogHeader>
-            <DialogTitle className="text-white text-xl text-center">
-              User Profile
+            <DialogTitle className="text-white text-lg text-center">
+              Product Details
             </DialogTitle>
 
-            <DialogDescription className="text-zinc-400 text-base text-center">
-              Your account details
+            <DialogDescription className="text-zinc-400 text-base text-center text-md">
+              Get Detailed Info about Product
             </DialogDescription>
           </DialogHeader>
 
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-1">
             <div className="profile-info ">
-              <p className="text-lg text-zinc-400">Product ID</p>
-              <p className="text-white text-xl font-medium">{data._id}</p>
+              <p className="text-md text-zinc-400">Product ID</p>
+              <p className="text-white text-md font-medium">{data._id}</p>
             </div>
             <div className=" profile-info ">
-              <p className="text-lg text-zinc-400">Product Name</p>
-              <p className="text-white text-xl font-medium">{data.name}</p>
+              <p className="text-md text-zinc-400">Product Name</p>
+              <p className="text-white text-md font-medium">{data.name}</p>
             </div>
             <div className=" profile-info ">
-              <p className="text-lg text-zinc-400">Product Price</p>
-              <p className="text-white text-xl font-medium">{data.price}</p>
+              <p className="text-md text-zinc-400">Product Price</p>
+              <p className="text-white text-md font-medium">{data.price}</p>
             </div>
 
             <div className=" profile-info ">
-              <p className="text-lg text-zinc-400">Product Quantity</p>
-              <p className="text-white text-xl font-medium">{data.quantity}</p>
+              <p className="text-md text-zinc-400">Product Quantity</p>
+              <p className="text-white text-md font-medium">{data.quantity}</p>
             </div>
             <div className=" profile-info ">
-              <p className="text-lg text-zinc-400">Product Created At</p>
-              <p className="text-white text-xl font-medium">{data.createdAt}</p>
+              <p className="text-md text-zinc-400">Product Created At</p>
+              <p className="text-white text-md font-medium">{data.createdAt}</p>
             </div>
           </div>
 

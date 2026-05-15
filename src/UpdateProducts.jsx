@@ -64,18 +64,18 @@ const UpdateProducts = ({
   return (
     <div>
       <Dialog open={open} onOpenChange={setOpen} className="dialog">
-        <DialogContent className="bg-zinc-900 border border-zinc-700 rounded-xl p-6 dialog product-dialog">
+        <DialogContent className="bg-zinc-900 border border-zinc-700 rounded-xl p-4 dialog product-dialog">
           <DialogHeader>
-            <DialogTitle className="text-white text-xl">
+            <DialogTitle className="text-white text-lg">
               Update Products
             </DialogTitle>
 
-            <DialogDescription className="text-zinc-400 text-base">
+            <DialogDescription className="text-zinc-400 text-base text-md">
               Update Products in your inventory
             </DialogDescription>
           </DialogHeader>
 
-          <div className="mt-4 space-y-4">
+          <div className="mt-4 space-y-2">
             <Label htmlFor="name" className="text-zinc-300">
               Product Name
             </Label>
